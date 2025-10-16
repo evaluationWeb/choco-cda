@@ -1,5 +1,15 @@
 # choco-cda
-Projet de cours PHP POO site chocoblast
+Projet de cours PHP POO web-app chocoblast
+
+### Pré-requis :
+```txt
+# Outils et technos installées
+PHP 8.2 +
+composer 2.7 +
+terminal bash / zsh / gitbash
+git 
+mysql 8.0 + ou mariaDB 10.4 +
+```
 
 ## 1 Récupération du projet :
 Lancer les commandes suivantes :
