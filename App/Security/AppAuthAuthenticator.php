@@ -5,17 +5,31 @@ namespace App\Security;
 class AppAuthAuthenticator
 {
     /**
-     * Authenticate the user
+     * Authenticate the user if authenticate success
      * @return void
      */
-    public function authenticate() {}
+    public function onAuthentificationSuccess(string $requiredGrants): void
+    {
+        $grants = $this->grantsToArray($requiredGrants);
+        $this->persistSessionGrants($grants);
+        header("Location: /");
+    }
+
+    /**
+     * End session the user if authenticate failed
+     * @return void
+     */
+    public function onAuthentificationFailure(): void
+    {
+        $this->endSession();
+    }
 
     /**
      * Persist the grants in the session
      * @param array $grants An array of grants  to persist  in the session
      * @return void
      */
-    private function persistSessionGrants(array $grants)
+    private function persistSessionGrants(array $grants): void
     {
         foreach ($grants as $grant) {
             $_SESSION["grants"][] = $grant;
