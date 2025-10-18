@@ -4,11 +4,13 @@ namespace App\Database;
 
 class Mysql
 {
-    public function connectBDD() {
+    public function connectBDD()
+    {
 
-        return new \PDO('mysql:host=' . $_ENV["DATABASE_HOST"] . ';dbname=' . $_ENV["DATABASE_NAME"] .'',
+        return new \PDO(
+            'mysql:host=' . $_ENV["DATABASE_HOST"] . ';dbname=' . $_ENV["DATABASE_NAME"] . '',
             $_ENV["DATABASE_USERNAME"],
-            $_ENV["DATABASE_PASSWORD"], 
+            $_ENV["DATABASE_PASSWORD"],
             [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
         );
     }
